@@ -7,6 +7,6 @@ describe('App.tsx', () => {
   it('should test the button click event', ()=>{
     render(<App/>)
     const h1 = screen.getByRole('heading')
-    expect(h1).toBeInTheDocument()
+    expect(h1).not.toBeInTheDocument()
   })
 })
