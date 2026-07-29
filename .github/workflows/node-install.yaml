@@ -14,7 +14,6 @@ jobs:
         run: npm ci
       - name: Run tests
         run: npm test
-
   print-info:
     needs: run-tests
     runs-on: ubuntu-latest
