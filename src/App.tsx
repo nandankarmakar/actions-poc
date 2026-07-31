@@ -1,8 +1,9 @@
 import React from 'react'
+import GreetUser from './GreetUser'
 const App : React.FC = ()=> {
   return (
     <div>
-      <h1>Hello</h1>
+      <GreetUser name='Nandan'/>
     </div>
   )
 }
