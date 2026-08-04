@@ -41,7 +41,7 @@ jobs:
         uses: actions/download-artifact@v8
         with:
           name: dist-files
-      - name: See artifacts:
+      - name: See artifacts
         run: ls
       - name: Deploy Website
         run: echo "Deploying...."
