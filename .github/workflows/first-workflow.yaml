@@ -8,6 +8,6 @@ jobs:
       USERNAME: Nandan
     steps:
       - name: Checkout Code
-        use: actions/checkout@v4
+        uses: actions/checkout@v4
       - name: Run JS
         run: node hello.js
