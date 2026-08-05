@@ -6,6 +6,8 @@ jobs:
   first-job:
     runs-on: ubuntu-latest
     environment: dev
+    env:
+      USER_NAME: ${{ vars.USER_NAME }}
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
