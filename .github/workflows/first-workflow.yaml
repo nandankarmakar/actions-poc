@@ -15,4 +15,4 @@ jobs:
       - name: Run JS
         run: node hello.js
       - name: Show env variable
-        run: echo ${{ vars.USER_NAME}}
+        run: echo ${{ vars.USER_NAME}} and password ${{ secrets.PASSWORD }}
