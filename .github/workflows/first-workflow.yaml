@@ -8,6 +8,7 @@ jobs:
     environment: dev
     env:
       USER_NAME: ${{ vars.USER_NAME }}
+      PASSWORD: ${{ secrets.PASSWORD}}
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
