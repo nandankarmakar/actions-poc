@@ -1,6 +1,7 @@
 name: First Workflow
 on:
   workflow_dispatch:
+environment: dev
 jobs:
   first-job:
     runs-on: ubuntu-latest
@@ -10,4 +11,4 @@ jobs:
       - name: Run JS
         run: node hello.js
       - name: Show env variable
-        run: echo ${{ env.USER_NAME}}
+        run: echo ${{ vars.USER_NAME}}
