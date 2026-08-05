@@ -1,9 +1,10 @@
 name: First Workflow
 on:
   workflow_dispatch:
-environment: dev
+
 jobs:
   first-job:
+    environment: dev
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
