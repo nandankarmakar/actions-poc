@@ -4,12 +4,10 @@ on:
 jobs:
   first-job:
     runs-on: ubuntu-latest
-    env:
-      USERNAME: Nandan
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
       - name: Run JS
         run: node hello.js
       - name: Show env variable
-        run: echo ${{ env.USERNAME}}
+        run: echo ${{ env.USER_NAME}}
