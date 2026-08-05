@@ -1,6 +1,6 @@
 name: First Workflow
 on:
-  workflow-dispatch:
+  workflow_dispatch:
 jobs:
   first-job:
     runs-on: ubuntu-latest
