@@ -1,8 +1,9 @@
 name: Deploy Website
 on:
-  push:
-    branches:
-      - main
+  # push:
+  #   branches:
+  #     - main
+  workflow-dispatch:
 
 jobs:
   test:
@@ -24,6 +25,8 @@ jobs:
   build:
     needs: test
     runs-on: ubuntu-latest
+    env:
+      USERNAME: Nandan
     outputs:
       script-file: ${{steps.publish.outputs.script-file}}
     steps:
