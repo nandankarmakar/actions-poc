@@ -11,3 +11,5 @@ jobs:
         uses: actions/checkout@v4
       - name: Run JS
         run: node hello.js
+      - name: Show env variable
+        run: echo ${{ env.USERNAME}}
