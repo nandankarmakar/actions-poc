@@ -1,4 +1,4 @@
-name: Deploy Website
+name: Test Conditional Worflow
 on:
   push:
     branches:
@@ -22,10 +22,9 @@ jobs:
         run: npm run lint
       - name: Test Code
         id: run-tests
-        continue-on-error: true
         run: npm run test
       - name: Upload Test report
-        if: steps.run-tests.outcome =='failure'
+        if: failure() && steps.run-tests.outcome =='failure'
         uses: actions/upload-artifact@v7
         with:
           name: test-report
