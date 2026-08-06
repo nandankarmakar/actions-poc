@@ -22,6 +22,7 @@ jobs:
         run: npm run lint
       - name: Test Code
         id: run-tests
+        continue-on-error: true
         run: npm run test
       - name: Upload Test report
         if: steps.run-tests.outcome =='failure'
