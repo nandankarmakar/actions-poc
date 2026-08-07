@@ -75,14 +75,7 @@ jobs:
             dist
   deploy:
     needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Get Build Artifacts
-        uses: actions/download-artifact@v8
-        with:
-          name: dist-files
-      - name: Deploy Website
-        run: echo "Deploying...."
+    uses: ./.github/workflows/reuse.yaml
   report:
     needs: [lint, deploy]
     if: failure()
