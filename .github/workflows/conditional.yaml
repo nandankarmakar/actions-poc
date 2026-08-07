@@ -9,8 +9,17 @@ jobs:
   ckeck-lint:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
+      - name: Get Code
         uses: actions/checkout@v4
+      - name: Cache Dependencies
+        id: cache
+        uses: actions/cache@v6
+        with:
+          path: node_modules
+          key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
+      - name: Install Dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci
       - name: Lint
         run: npm run lint
   test:
@@ -75,7 +84,7 @@ jobs:
       - name: Deploy Website
         run: echo "Deploying...."
   report:
-    needs: [deploy]
+    needs: [lint, deploy]
     if: failure()
     runs-on: ubuntu-latest
     steps:
