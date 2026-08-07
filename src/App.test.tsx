@@ -12,7 +12,7 @@ describe('App.tsx', () => {
 
   it('should test if button is present', ()=>{
     render(<App/>)
-    const btn = screen.getByRole('button', { name: /click/i });
+    const btn = screen.getByRole('button', { name: /fcc/i });
     expect(btn).toBeInTheDocument()
   })
 })
