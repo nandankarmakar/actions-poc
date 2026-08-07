@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  ckeck-lint:
+  lint:
     runs-on: ubuntu-latest
     steps:
       - name: Get Code
