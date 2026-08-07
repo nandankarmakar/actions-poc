@@ -14,8 +14,8 @@ jobs:
       - name: Cache Dependencies
         uses: actions/cache@v6
         with:
-          path: ~/.npm
-          key: deps-node-modules-${{ hashFiles('**/package-lock.json')}}
+          path: node_modules
+          key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
       - name: Install Dependencies
         run: npm ci
       - name: Lint Code
