@@ -6,6 +6,13 @@ on:
   workflow_dispatch:
 
 jobs:
+  ckeck-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      - name: Lint
+        run: npm run lint
   test:
     runs-on: ubuntu-latest
     steps:
@@ -20,8 +27,6 @@ jobs:
       - name: Install Dependencies
         if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
-      - name: Lint Code
-        run: npm run lint
       - name: Test Code
         id: run-tests
         run: npm run test
@@ -40,11 +45,13 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
       - name: Cache Dependencies
+        id: cache
         uses: actions/cache@v6
         with:
-          path: ~/.npm
-          key: deps-node-modules-${{ hashFiles('**/package-lock.json')}}
+          path: node_modules
+          key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
       - name: Install Dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
       - name: Build Code
         run: npm run build
