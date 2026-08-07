@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test": "jest --json --`outputFile`=test-report.json",
+    "test": "jest --json --outputFile=test-report.json",
     "test:watch": "jest --watch",
     "e2e": "playwright test",
     "e2e:ui": "playwright test --ui",
