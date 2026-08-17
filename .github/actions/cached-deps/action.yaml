@@ -1,8 +1,17 @@
 name: 'Get & Cache Dependencies'
 description: 'Get the dependecies (npm) and cache them'
+inputs:
+  node-version:
+    description: 'Add Node version required'
+    required: false
+    default: '24'
 runs:
   using: 'composite'
   steps:
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ inputs.node-version }}
     - name: Cache Dependencies
       id: cache
       uses: actions/cache@v6
