@@ -26,4 +26,14 @@ jobs:
           name: dist
           path: dist
       - name: list Artifacts
-        run: ls -la
+        run: ls
+      - name: deploy artifact
+        uses: ./.github/actions/deploy-s3-javascript
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_KEY }}
+        with:
+          bucket: gha-custom-action-prac
+          bucket-region: ap-south-1
+          dist-folder: ./dist
+      
