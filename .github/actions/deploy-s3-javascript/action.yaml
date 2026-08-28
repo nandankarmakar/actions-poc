@@ -1,5 +1,17 @@
-name: 'Deploy a Website via s3'
-description: 'Deploy a static website via s3'
+name: Deploy a Website via s3
+description: Deploy a static website via s3
+inputs:
+  bucket:
+    description: Bucket name for Deployment
+    required: true
+  bucket-region:
+    description: Region of the bcuket
+    required: false
+    default: 'ap-south-1'
+  dist-folder:
+    description: Folder containing the deployable files
+    required: true
+
 runs:
   using: 'node24'
   main: 'main.js'
