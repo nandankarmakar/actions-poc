@@ -7,5 +7,8 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
+      - name: Install Custom Action Dependencies
+        run: npm ci
+        working-directory: .github/actions/deploy-s3-javascript
       - name: Try JS Custom Action
         uses: ./.github/actions/deploy-s3-javascript
