@@ -1,0 +1,9 @@
+name: Testing Custom Javascript Action
+on:
+  workflow_dispatch:
+jobs:
+  run-js-custom-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Try JS Custom Action
+        uses: ./github/actions/deploy-s3-javascript
