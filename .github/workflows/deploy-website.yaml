@@ -16,3 +16,13 @@ jobs:
         with:
           name: dist
           path: dist
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: download artifact
+        uses: actions/download-artifact@v7
+        with:
+          name: dist
+          path: dist
+      - name: list Artifacts
+        run: ls -la
