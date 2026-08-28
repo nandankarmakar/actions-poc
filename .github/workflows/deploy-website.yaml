@@ -31,7 +31,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Install Custom action deps
         uses: npm ci 
-        working-directory: .github/actions/deploy-s3-javascript
+        working-directory: ./.github/actions/deploy-s3-javascript
       - name: deploy artifact
         uses: ./.github/actions/deploy-s3-javascript
         env:
