@@ -20,6 +20,11 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: checkout custom action Code
+        uses: actions/checkout@v4
+      - name: Install Custom action deps
+        run: npm ci
+        working-directory: ./.github/actions/deploy-s3-javascript
       - name: download artifact
         uses: actions/download-artifact@v7
         with:
@@ -27,11 +32,6 @@ jobs:
           path: dist
       - name: list Artifacts
         run: ls
-      - name: checkout custom action Code
-        uses: actions/checkout@v4
-      - name: Install Custom action deps
-        run: npm ci
-        working-directory: ./.github/actions/deploy-s3-javascript
       - name: deploy artifact
         uses: ./.github/actions/deploy-s3-javascript
         env:
