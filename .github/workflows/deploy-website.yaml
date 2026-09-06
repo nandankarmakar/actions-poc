@@ -17,6 +17,9 @@ jobs:
           name: dist
           path: dist
   deploy:
+    permissions:
+      id-token: write
+      contents: read
     needs: build
     runs-on: ubuntu-latest
     steps:
@@ -34,9 +37,11 @@ jobs:
         run: ls
       - name: deploy artifact
         uses: ./.github/actions/deploy-s3-javascript
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_KEY }}
+      - name: Get AWS Permissions
+        uses: aws-actions/configure-aws-credentials@v6
+        with:
+          role-to-assume: arn:aws:iam::721744297823:role/s3-access-oidc-role
+          aws-region: ap-south-1
         with:
           bucket: gha-custom-action-prac
           bucket-region: ap-south-1
