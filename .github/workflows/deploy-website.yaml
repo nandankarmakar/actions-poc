@@ -35,13 +35,14 @@ jobs:
           path: dist
       - name: list Artifacts
         run: ls
-      - name: deploy artifact
-        uses: ./.github/actions/deploy-s3-javascript
       - name: Get AWS Permissions
         uses: aws-actions/configure-aws-credentials@v6
         with:
           role-to-assume: arn:aws:iam::721744297823:role/s3-access-oidc-role
           aws-region: ap-south-1
+      - name: deploy artifact
+        uses: ./.github/actions/deploy-s3-javascript
+        with:
           bucket: gha-custom-action-prac
           bucket-region: ap-south-1
           dist-folder: ./dist
