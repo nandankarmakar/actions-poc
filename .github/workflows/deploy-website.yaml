@@ -38,7 +38,7 @@ jobs:
       - name: Get AWS Permissions
         uses: aws-actions/configure-aws-credentials@v6
         with:
-          role-to-assume: arn:aws:iam::721744297823:role/s3-access-oidc-role
+          role-to-assume: arn:aws:iam::721744297823:role/oidc-github-role
           aws-region: ap-south-1
       - name: deploy artifact
         uses: ./.github/actions/deploy-s3-javascript
